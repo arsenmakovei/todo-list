@@ -29,6 +29,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 # Application definition
 
@@ -39,10 +42,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "debug_toolbar",
+    "crispy_forms",
+    "todo_list",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -69,6 +76,8 @@ TEMPLATES = [
     },
 ]
 
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+
 WSGI_APPLICATION = "todo_list_service.wsgi.application"
 
 
@@ -89,19 +98,19 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation."
-                "UserAttributeSimilarityValidator",
+        "UserAttributeSimilarityValidator",
     },
     {
         "NAME": "django.contrib.auth.password_validation."
-                "MinimumLengthValidator",
+        "MinimumLengthValidator",
     },
     {
         "NAME": "django.contrib.auth.password_validation."
-                "CommonPasswordValidator",
+        "CommonPasswordValidator",
     },
     {
         "NAME": "django.contrib.auth.password_validation."
-                "NumericPasswordValidator",
+        "NumericPasswordValidator",
     },
 ]
 
@@ -111,7 +120,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Europe/Kiev"
 
 USE_I18N = True
 
